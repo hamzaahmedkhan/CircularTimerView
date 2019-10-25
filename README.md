@@ -18,7 +18,7 @@ A simple library for creating circular progress bar timer view for Android.
 1) Add CircularTimerView to your layout
 
 ```xml
-    <com.uzairiqbal.circulartimerview.CircularTimerView
+    <com.hamzaahmedkhan.circulartimerview.CircularTimerView
         android:id="@+id/progress_circular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

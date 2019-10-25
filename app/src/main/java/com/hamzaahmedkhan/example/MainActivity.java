@@ -1,4 +1,4 @@
-package com.uzairiqbal.example;
+package com.hamzaahmedkhan.example;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,9 +7,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.uzairiqbal.circulartimerview.CircularTimerListener;
-import com.uzairiqbal.circulartimerview.CircularTimerView;
-import com.uzairiqbal.circulartimerview.TimeFormatEnum;
+import com.hamzaahmedkhan.circulartimerview.CircularTimerListener;
+import com.hamzaahmedkhan.circulartimerview.CircularTimerView;
+import com.hamzaahmedkhan.circulartimerview.TimeFormatEnum;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,11 +24,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_circular);
         progressBar.setProgress(0);
 
-
-
-
-
-
+        
         progressBar.setCircularTimerListener(new CircularTimerListener() {
             @Override
             public String updateDataOnTick(long remainingTimeInMs) {

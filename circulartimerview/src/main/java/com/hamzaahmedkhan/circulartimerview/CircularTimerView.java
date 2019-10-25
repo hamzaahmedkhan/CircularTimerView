@@ -1,4 +1,4 @@
-package com.uzairiqbal.circulartimerview;
+package com.hamzaahmedkhan.circulartimerview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,6 +12,9 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * The type Circular timer view.
+ */
 public class CircularTimerView extends View {
 
     private Paint progressBarPaint;
@@ -22,8 +25,16 @@ public class CircularTimerView extends View {
     private float mRadius;
     private RectF mArcBounds = new RectF();
 
+    /**
+     * The Draw upto.
+     */
     float drawUpto = 0;
 
+    /**
+     * Instantiates a new Circular timer view.
+     *
+     * @param context the context
+     */
     public CircularTimerView(Context context) {
         super(context);
 
@@ -47,17 +58,33 @@ public class CircularTimerView extends View {
     private Boolean isClockwise = true;
     private int startingAngle = 270;
 
+    /**
+     * The Def style attr.
+     */
     int defStyleAttr;
 
     private CircularTimerListener circularTimerListener;
     private CountDownTimer countDownTimer;
 
+    /**
+     * Instantiates a new Circular timer view.
+     *
+     * @param context      the context
+     * @param attrs        the attrs
+     * @param defStyleAttr the def style attr
+     */
     public CircularTimerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.defStyleAttr = defStyleAttr;
         initPaints(context, attrs);
     }
 
+    /**
+     * Instantiates a new Circular timer view.
+     *
+     * @param context the context
+     * @param attrs   the attrs
+     */
     public CircularTimerView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
         initPaints(context, attrs);
@@ -190,25 +217,50 @@ public class CircularTimerView extends View {
 
     }
 
+    /**
+     * Sets progress.
+     *
+     * @param f the f
+     */
     public void setProgress(float f) {
         drawUpto = f;
         invalidate();
     }
 
+    /**
+     * Gets progress.
+     *
+     * @return the progress
+     */
     public float getProgress() {
         return drawUpto;
     }
 
+    /**
+     * Gets progress percentage.
+     *
+     * @return the progress percentage
+     */
     public float getProgressPercentage() {
         return drawUpto / getMaxValue() * 100;
     }
 
+    /**
+     * Sets progress color.
+     *
+     * @param color the color
+     */
     public void setProgressColor(int color) {
         progressColor = color;
         progressBarPaint.setColor(color);
         invalidate();
     }
 
+    /**
+     * Sets progress color.
+     *
+     * @param color the color
+     */
     public void setProgressColor(String color) {
         progressBarPaint.setColor(Color.parseColor(color));
         invalidate();
@@ -220,114 +272,215 @@ public class CircularTimerView extends View {
         invalidate();
     }
 
+    /**
+     * Sets background color.
+     *
+     * @param color the color
+     */
     public void setBackgroundColor(String color) {
         backgroundPaint.setColor(Color.parseColor(color));
         invalidate();
     }
 
 
-
+    /**
+     * Sets progress background color.
+     *
+     * @param color the color
+     */
     public void setProgressBackgroundColor(int color) {
         progressBackgroundColor = color;
         progressBarBackgroundPaint.setColor(color);
         invalidate();
     }
 
+    /**
+     * Sets progress background color.
+     *
+     * @param color the color
+     */
     public void setProgressBackgroundColor(String color) {
         progressBarBackgroundPaint.setColor(Color.parseColor(color));
         invalidate();
     }
 
 
-
-
+    /**
+     * Gets max value.
+     *
+     * @return the max value
+     */
     public float getMaxValue() {
         return maxValue;
     }
 
+    /**
+     * Sets max value.
+     *
+     * @param max the max
+     */
     public void setMaxValue(float max) {
         maxValue = max;
         invalidate();
     }
 
+    /**
+     * Sets stroke width dimension.
+     *
+     * @param width the width
+     */
     public void setStrokeWidthDimension(float width) {
         strokeWidthDimension = width;
         invalidate();
     }
 
+    /**
+     * Gets stroke width dimension.
+     *
+     * @return the stroke width dimension
+     */
     public float getStrokeWidthDimension() {
         return strokeWidthDimension;
     }
 
+    /**
+     * Sets background width.
+     *
+     * @param width the width
+     */
     public void setBackgroundWidth(float width) {
         backgroundWidth = width;
         invalidate();
     }
 
+    /**
+     * Gets background width.
+     *
+     * @return the background width
+     */
     public float getBackgroundWidth() {
         return backgroundWidth;
     }
 
+    /**
+     * Sets text.
+     *
+     * @param progressText the progress text
+     */
     public void setText(String progressText) {
         text = progressText;
         invalidate();
     }
 
+    /**
+     * Gets text.
+     *
+     * @return the text
+     */
     public String getText() {
         return text;
     }
 
+    /**
+     * Sets text color.
+     *
+     * @param color the color
+     */
     public void setTextColor(int color) {
         progressTextColor = color;
         textPaint.setColor(color);
         invalidate();
     }
 
+    /**
+     * Sets text color.
+     *
+     * @param color the color
+     */
     public void setTextColor(String color) {
         textPaint.setColor(Color.parseColor(color));
         invalidate();
     }
 
+    /**
+     * Gets text color.
+     *
+     * @return the text color
+     */
     public int getTextColor() {
         return progressTextColor;
     }
 
+    /**
+     * Sets suffix.
+     *
+     * @param suffix the suffix
+     */
     public void setSuffix(String suffix) {
         this.suffix = suffix;
         invalidate();
     }
 
+    /**
+     * Gets suffix.
+     *
+     * @return the suffix
+     */
     public String getSuffix() {
         return suffix;
     }
 
+    /**
+     * Gets prefix.
+     *
+     * @return the prefix
+     */
     public String getPrefix() {
         return prefix;
     }
 
+    /**
+     * Sets prefix.
+     *
+     * @param prefix the prefix
+     */
     public void setPrefix(String prefix) {
         this.prefix = prefix;
         invalidate();
     }
 
+    /**
+     * Gets clockwise.
+     *
+     * @return the clockwise
+     */
     public Boolean getClockwise() {
         return isClockwise;
     }
 
+    /**
+     * Sets clockwise.
+     *
+     * @param clockwise the clockwise
+     */
     public void setClockwise(Boolean clockwise) {
         isClockwise = clockwise;
         invalidate();
     }
 
+    /**
+     * Gets starting angle.
+     *
+     * @return the starting angle
+     */
     public int getStartingAngle() {
         return startingAngle;
     }
 
     /**
-     * @param startingAngle 270 for Top
-     *                      0 for Right
-     *                      90 for Bottom
-     *                      180 for Left
+     * Sets starting angle.
+     *
+     * @param startingAngle 270 for Top                      0 for Right                      90 for Bottom                      180 for Left
      */
     public void setStartingAngle(int startingAngle) {
         this.startingAngle = startingAngle;
@@ -342,7 +495,6 @@ public class CircularTimerView extends View {
      * @param time                  time in long, e.g 1,2,3,4 or any long digit
      * @param timeFormatEnum        Format to define whether the given long time number is milli, second, minute, hour or day
      */
-
     public void setCircularTimerListener(final CircularTimerListener circularTimerListener, long time, TimeFormatEnum timeFormatEnum) {
         this.circularTimerListener = circularTimerListener;
 
@@ -400,8 +552,8 @@ public class CircularTimerView extends View {
      * @param circularTimerListener Pass your listener to listen ticks and provide data and to listen finish call
      * @param time                  time in long, e.g 1,2,3,4 or any long digit
      * @param timeFormatEnum        Format to define whether the given long time number is milli, second, minute, hour or day
+     * @param timeinterval          the timeinterval
      */
-
     public void setCircularTimerListener(final CircularTimerListener circularTimerListener, long time, TimeFormatEnum timeFormatEnum, long timeinterval) {
         this.circularTimerListener = circularTimerListener;
 
@@ -455,6 +607,11 @@ public class CircularTimerView extends View {
     }
 
 
+    /**
+     * Start timer boolean.
+     *
+     * @return the boolean
+     */
     public boolean startTimer() {
         if (countDownTimer == null) {
             return false;
