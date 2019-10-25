@@ -38,6 +38,8 @@ A simple library for creating circular progress bar timer view for Android.
 
 2) Get it from your activity/fragment etc.
 
+
+**JAVA**
 ```java
     CircularTimerView progressBar = findViewById(R.id.progress_circular);
     progressBar.setProgress(0);
@@ -110,6 +112,42 @@ You can modify it programmatically if you want
 	
 	
 ```
+
+
+
+**KOTLIN**
+```kotlin
+    progressBar = findViewById(R.id.progress_circular)
+    progressBar.progress = 0f
+
+
+
+// To Initialize Timer
+     progressBar.setCircularTimerListener(object : CircularTimerListener {
+                 override fun updateDataOnTick(remainingTimeInMs: Long): String {
+                     return Math.ceil((remainingTimeInMs / 1000f).toDouble()).toInt().toString()
+                 }
+     
+                 override fun onTimerFinished() {
+                     Toast.makeText(this@MainActivity, "FINISHED", Toast.LENGTH_SHORT).show()
+                     progressBar.prefix = ""
+                     progressBar.suffix = ""
+                     progressBar.text = "FINISHED THANKS!"
+                 }
+             }, 10, TimeFormatEnum.SECONDS, 10)
+
+
+// To start timer
+      progressBar.startTimer()
+
+
+```
+
+You can modify it programmatically if you want
+
+<b>Setters</b>
+
+```java
 
 ## LICENSE
 
